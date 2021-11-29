@@ -4,6 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const isProd = process.env.NODE_ENV === 'production';
+const isDev = !isProd;
+
+console.log("PROD", isProd);
+console.log("DEV", isDev);
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
