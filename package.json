@@ -23,7 +23,11 @@
     "url": "https://github.com/Taras-Slovak/My_Own_JavaScript_Framework/issues"
   },
   "homepage": "https://github.com/Taras-Slovak/My_Own_JavaScript_Framework#readme",
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.0.0",
     "css-loader": "^6.5.1",
