@@ -20,7 +20,7 @@ const jsLoaders = ()=>{
   ];
 
   if (isDev) {
-    loaders.push('eslint-lader');
+    loaders.push('eslint-loader');
   }
   return loaders;
 };
