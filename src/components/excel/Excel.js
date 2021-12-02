@@ -8,7 +8,7 @@ export class Excel {
 
     this.components.forEach(Component=>{
       const component = new Component();
-      console.log(component.toHTML());
+      $root.insertAdjacentHTML('beforeend', component.toHTML());
     });
     return $root;
   }
