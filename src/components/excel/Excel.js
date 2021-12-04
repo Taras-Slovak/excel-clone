@@ -19,5 +19,7 @@ export class Excel {
   }
   render() {
     this.$el.append(this.getRoot());
+
+    this.components.forEach(component => component.init());
   }
 }
