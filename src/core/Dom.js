@@ -16,8 +16,15 @@ class Dom {
     this.html('');
     return this;
   }
-}
 
+  append(node) {
+    if (Element.prototype.append) {
+      this.$el.append(node.$el);
+    } else {
+      this.$el.appendChild(node.$el);
+    }
+  }
+}
 
 // event.target
 export function $(selector) {
@@ -28,5 +35,5 @@ $.create =(tagName, classes = '') => {
   if (classes) {
     el.classList.add(classes);
   }
-  return el;
+  return $(el);
 };
