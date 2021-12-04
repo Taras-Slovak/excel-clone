@@ -7,4 +7,7 @@ export class ExcelComponent extends DomListener {
   toHTML() {
     return '';
   }
+  init() {
+    this.initDOMlisteners();
+  }
 }
