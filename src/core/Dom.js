@@ -21,6 +21,10 @@ class Dom {
     this.$el.addEventListener(evenType, callback);
   }
 
+  off(evenType, callback) {
+    this.$el.removeEventListener(evenType, callback);
+  }
+
   append(node) {
     if (node instanceof Dom) {
       node = node.$el;
