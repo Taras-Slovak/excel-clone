@@ -8,7 +8,7 @@ export class DomListener {
     this.$root = $root;
     this.listeners = listeners;
   }
-  initDOMlisteners() {
+  initDOMListeners() {
     this.listeners.forEach(listener => {
       const method = getMethodName(listener);
       if (!this[method]) {
@@ -22,7 +22,7 @@ export class DomListener {
     });
   }
 
-  removeDOMlisteners() {
+  removeDOMListeners() {
     this.listeners.forEach(listener => {
       const method = getMethodName(listener);
       this.$root.off(listener, this[method]);

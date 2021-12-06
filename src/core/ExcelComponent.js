@@ -9,10 +9,10 @@ export class ExcelComponent extends DomListener {
     return '';
   }
   init() {
-    this.initDOMlisteners();
+    this.initDOMListeners();
   }
 
   destroy() {
-    this.removeDOMlisteners();
+    this.removeDOMListeners();
   }
 }

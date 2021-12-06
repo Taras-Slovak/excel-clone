@@ -14,10 +14,10 @@ export class Table extends ExcelComponent {
     return createTable(20);
   }
   onClick() {
-    cosole.log('click');
+    console.log('click');
   }
 
-  onMouseDown() {
-    cosole.log('mousedown');
+  onMousedown() {
+    console.log('mousedown');
   }
 }
