@@ -41,7 +41,7 @@ class Dom {
     return $(this.$el.closest(selector));
   }
 
-  getCords() {
+  getCoords() {
     return this.$el.getBoundingClientRect();
   }
 }

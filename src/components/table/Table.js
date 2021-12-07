@@ -19,8 +19,9 @@ export class Table extends ExcelComponent {
     if (event.target.dataset.resize) {
       const $resizer = $(event.target);
       const $parent = $resizer.closest('[data-type="resizable"]');
-      console.log($parent.getCords());
+      const coords =$parent.getCoords();
       document.onmousemove = e => {
+
       };
     }
   }
