@@ -68,12 +68,12 @@
   }
   .col-resize, .rol-resize{
     position: absolute;
+    z-index: 1000;
     right: 0;
     background: $primary-color;
     opacity: 0;
-    transition: all 0.3s;
     &:hover{
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
   .col-resize {
