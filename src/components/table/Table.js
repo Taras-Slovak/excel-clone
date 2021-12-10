@@ -2,6 +2,7 @@ import {ExcelComponent} from '@core/ExcelComponent';
 import {createTable} from '@/components/table/table.template';
 import {resizeHandler} from '@/components/table/table.resize';
 import {shouldResize} from '@/components/table/table.function';
+import {TableSelection} from '@/components/table/TableSelection';
 
 export class Table extends ExcelComponent {
   static className = 'excel__table';
@@ -18,6 +19,7 @@ export class Table extends ExcelComponent {
 
   init() {
     super.init();
+    this.selection = new TableSelection();
   }
 
   onMousedown(event) {

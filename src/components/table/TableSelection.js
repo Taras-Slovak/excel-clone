@@ -1,9 +1,10 @@
 export class TableSelection {
   constructor() {
+    this.group = [];
   }
 
-  select() {
-
+  select($el) {
+    this.group.push($el);
   }
 
   selectGroup() {
