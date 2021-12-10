@@ -15,7 +15,7 @@ function toCell(row) {
          contenteditable
          data-col="${col}"
          data-id="${row}:${col}"
-      </div>`;
+      ></div>`;
   };
 }
 
@@ -59,7 +59,7 @@ export function createTable(rowsCount = 15) {
     const cells = new Array(colsCount)
         .fill('')
         // .map((_, col) => toCell(row))
-        .map(toCell(rows))
+        .map(toCell(row))
         .join('');
     rows.push(createRow(row + 1, cells));
   }
