@@ -14,7 +14,6 @@ function toCell(row) {
          class="cell"
          ontenteditable
          data-col="${col}"
-         data-row="${row}"
          data-id="${row}:${col}"
       </div>`;
   };
