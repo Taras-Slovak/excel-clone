@@ -12,7 +12,7 @@ function toCell(row) {
     return `
       <div
          class="cell"
-         ontenteditable
+         contenteditable
          data-col="${col}"
          data-id="${row}:${col}"
       </div>`;
