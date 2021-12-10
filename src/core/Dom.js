@@ -25,6 +25,10 @@ class Dom {
     this.$el.removeEventListener(evenType, callback);
   }
 
+  find(selector) {
+    return $(this.$el.querySelector(selector));
+  }
+
   append(node) {
     if (node instanceof Dom) {
       node = node.$el;
