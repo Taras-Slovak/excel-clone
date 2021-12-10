@@ -62,6 +62,14 @@ class Dom {
       this.$el.style[key] = styles[key];
     });
   }
+
+  addClass(className) {
+    this.$el.classList.add(className);
+  }
+
+  removeClass(className) {
+    this.$el.classList.remove(className);
+  }
 }
 
 // event.target
