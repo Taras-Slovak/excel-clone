@@ -20,6 +20,8 @@ export class Table extends ExcelComponent {
   init() {
     super.init();
     this.selection = new TableSelection();
+    const $cell = this.$root.find('[data-id="0:0"]');
+    this.selection.select($cell);
   }
 
   onMousedown(event) {
