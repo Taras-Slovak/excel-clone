@@ -1,7 +1,8 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {createTable} from '@/components/table/table.template';
 import {resizeHandler} from '@/components/table/table.resize';
-import {isCell, matrix, nextSelector, shouldResize} from '@/components/table/table.function';
+import {isCell, matrix,
+  nextSelector, shouldResize} from '@/components/table/table.function';
 import {TableSelection} from '@/components/table/TableSelection';
 import {$} from '@core/Dom';
 
