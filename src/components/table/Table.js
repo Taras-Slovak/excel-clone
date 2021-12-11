@@ -48,7 +48,7 @@ export class Table extends ExcelComponent {
       'ArrowRight', 'ArrowDown',
       'ArrowUp'];
     const {key} = event;
-    if (keys.includes(key)) {
+    if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault();
       const id = this.selection.current.id(true);
       const $next = this.$root.find(nextSelector(key, id));
