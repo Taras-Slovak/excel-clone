@@ -43,6 +43,36 @@ export class Table extends ExcelComponent {
   }
 
   onKeydown(event) {
-    const keys = [];
+    const keys = [
+      'Enter', 'Tab', 'ArrowLeft',
+      'ArrowRight', 'ArrowDown',
+      'ArrowUp'];
+    const {key} = event;
+    if (keys.includes(key)) {
+      event.preventDefault();
+      const id = this.selection.current.id(true);
+      const $next = this.$root.find(nextSelector(key, id));
+      this.selection.select($next);
+    }
   }
+}
+
+function nextSelector(key, {col, row}) {
+  switch (key) {
+    case 'Enter':
+    case 'ArrowDown':
+      row ++;
+      break;
+    case 'Tab':
+    case 'ArrowRight':
+      col++;
+      break;
+    case 'ArrowLeft':
+      col--;
+      break;
+    case 'ArrowUp':
+      row--;
+      break;
+  }
+  return `[data-id="${row}:${col}"]`;
 }
