@@ -10,7 +10,7 @@ export class Table extends ExcelComponent {
 
   constructor($root) {
     super($root, {
-      listeners: ['mousedown']
+      listeners: ['mousedown', 'keydown']
     });
   }
 
@@ -40,5 +40,9 @@ export class Table extends ExcelComponent {
         this.selection.select($target);
       }
     }
+  }
+
+  onKeydown(event) {
+    const keys = [];
   }
 }
