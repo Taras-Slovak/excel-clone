@@ -28,6 +28,10 @@ export class Table extends ExcelComponent {
     super.init();
     const $cell = this.$root.find('[data-id="0:0"]');
     this.selection.select($cell);
+
+    this.emitter.subscribe('it is working ', text => {
+      console.log('Table from Formula', text);
+    });
   }
 
   onMousedown(event) {
