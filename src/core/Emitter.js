@@ -4,8 +4,14 @@ export class Emitter {
   }
   // dispatch, fire, trigger
   // We inform the listeners if they are
-  emit() {
-
+  emit(event, ...args) {
+    if (!Array.isArray(this.listeners[event])) {
+      return false;
+    }
+    this.listeners[event].forEach(listener => {
+      listener(...args);
+    });
+    return true;
   }
   // on, listen
   // Subscribe to notifications
