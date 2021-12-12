@@ -10,7 +10,8 @@ export class Emitter {
   // on, listen
   // Subscribe to notifications
   // Add a new listener
-  subscribe() {
-
+  subscribe(event, fn) {
+    this.listeners[event] = this.listeners[event] || [];
+    this.listeners[event].push(fn);
   }
 }
