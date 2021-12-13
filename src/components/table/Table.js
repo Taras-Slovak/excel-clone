@@ -31,7 +31,7 @@ export class Table extends ExcelComponent {
 
     this.emitter.subscribe('it is working', text => {
       this.selection.current.text(text);
-      console.log('Table form Formula', text);
+      console.log('Table from Formula', text);
     });
   }
 
