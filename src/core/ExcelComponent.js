@@ -22,6 +22,7 @@ export class ExcelComponent extends DomListener {
     this.initDOMListeners();
   }
 
+  // Notifying the listener of an event
   $emit(event, ...args) {
     this.emitter.emit(event, ...args);
   }
