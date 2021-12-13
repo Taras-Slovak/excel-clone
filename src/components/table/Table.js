@@ -31,7 +31,6 @@ export class Table extends ExcelComponent {
 
     this.$on('it is working', text => {
       this.selection.current.text(text);
-      console.log('Table from Formula', text);
     });
   }
 
