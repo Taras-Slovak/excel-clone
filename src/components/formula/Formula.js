@@ -15,13 +15,13 @@ export class Formula extends ExcelComponent {
   toHTML() {
     return `
       <div class="info">fx</div>
-      <div class="input" contenteditable spellcheck="false"></div>
+      <div id="formula" class="input" contenteditable spellcheck="false"></div>
     `;
   }
 
   init() {
     super.init();
-    this.$formula = this.$root.find('input');
+    this.$formula = this.$root.find('#formula');
     this.$on('table:select', $cell =>{
       this.$formula.text($cell.text());
     });
