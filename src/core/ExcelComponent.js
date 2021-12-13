@@ -8,15 +8,22 @@ export class ExcelComponent extends DomListener {
     this.prepare();
   }
 
+  // setting the component to init()
   prepare() {}
 
+  // returns a component pattern
   toHTML() {
     return '';
   }
+
+  // Component initialization
+  // Add DOM listeners
   init() {
     this.initDOMListeners();
   }
 
+  // Deleting a component
+  // Clean up the listener
   destroy() {
     this.removeDOMListeners();
   }
