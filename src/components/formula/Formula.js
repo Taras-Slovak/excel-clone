@@ -23,7 +23,7 @@ export class Formula extends ExcelComponent {
     this.$emit('formula:input', text);
   }
 
-  onKeyDown(event) {
+  onKeydown(event) {
     if (event.key === 'Enter') {
       event.preventDefault();
       this.$emit('formula:done');
