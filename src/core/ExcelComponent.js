@@ -27,6 +27,11 @@ export class ExcelComponent extends DomListener {
     this.emitter.emit(event, ...args);
   }
 
+  // Subscribe to events
+  $on(event, fn) {
+    this.emitter.subscribe(event, fn);
+  }
+
   // Deleting a component
   // Clean up the listener
   destroy() {
