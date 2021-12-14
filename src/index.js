@@ -8,9 +8,8 @@ import {createStore} from '@core/createStore';
 import {rootReducer} from '@/redux/rootReducer';
 import {storage} from '@core/utils';
 
-const store = createStore(rootReducer, {
-  colState: {}
-});
+const store = createStore(rootReducer, storage('excel-state')
+);
 
 store.subscribe(state => {
   console.log('App State:', state);
