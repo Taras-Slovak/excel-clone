@@ -7,6 +7,10 @@ const CODES = {
 
 const DEFAULT_WIDTH = 120;
 
+function getWidth(state, index) {
+  return (state[index] || DEFAULT_WIDTH) + 'px';
+}
+
 function toCell(state, row) {
   return function(_, col) {
     const width = getWidth(state.colState, col);
@@ -48,9 +52,6 @@ function createRow(index, content) {
 
 function toChar(_, index) {
   return String.fromCharCode(CODES.A + index);
-}
-function getWidth(state, index) {
-  return (state[index] || DEFAULT_WIDTH) + 'px';
 }
 
 function widthWidthFrom(state) {
