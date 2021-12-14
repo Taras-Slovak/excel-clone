@@ -11,7 +11,7 @@ const DEFAULT_WIDTH = 120;
 //   return `<div class="cell" contenteditable data-col="${col}"</div>`;
 // }
 
-function toCell(row) {
+function toCell(state, row) {
   return function(_, col) {
     return `
       <div
@@ -79,8 +79,7 @@ export function createTable(rowsCount = 15, state = {}) {
   for (let row=0; row < rowsCount; row++ ) {
     const cells = new Array(colsCount)
         .fill('')
-        // .map((_, col) => toCell(row))
-        .map(toCell(row))
+        .map(toCell(state, row))
         .join('');
     rows.push(createRow(row + 1, cells));
   }
