@@ -11,6 +11,10 @@ const store = createStore(rootReducer, {
   colState: {}
 });
 
+store.subscribe(state => {
+  console.log('App State:', state);
+});
+
 const excel =	new Excel('#app', {
   components: [Header, Toolbar, Formula, Table],
   store
