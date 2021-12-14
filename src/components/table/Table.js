@@ -48,7 +48,8 @@ export class Table extends ExcelComponent {
   }
 
   async resizeTable(event) {
-    await resizeHandler(this.$root, event);
+    const data = await resizeHandler(this.$root, event);
+    console.log(data);
   }
 
   onMousedown(event) {
