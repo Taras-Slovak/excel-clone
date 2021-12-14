@@ -13,6 +13,7 @@ const DEFAULT_WIDTH = 120;
 
 function toCell(state, row) {
   return function(_, col) {
+    const width = getWidth(state.colState, col);
     return `
       <div
          class="cell"
@@ -20,7 +21,7 @@ function toCell(state, row) {
          data-col="${col}"
          data-type ="cell"
          data-id="${row}:${col}"
-         style="width: ${getWidth(state.colState, col)}"
+         style="width: ${width}"
       ></div>`;
   };
 }
