@@ -24,7 +24,7 @@ function toCell(row) {
   };
 }
 
-function toColumn(col, index, width) {
+function toColumn({col, index, width}) {
   return `
     <div
     class="column"
