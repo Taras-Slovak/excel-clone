@@ -47,8 +47,8 @@ export class Table extends ExcelComponent {
     this.$emit('table:select', $cell);
   }
 
-  resizeTable(event) {
-    resizeHandler(this.$root, event);
+  async resizeTable(event) {
+    await resizeHandler(this.$root, event);
   }
 
   onMousedown(event) {
