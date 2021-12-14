@@ -54,6 +54,13 @@ function toChar(_, index) {
 function getWidth(state, index) {
   return (state[index] || DEFAULT_WIDTH) + 'px';
 }
+
+function widthWidthFrom(state) {
+  return function(col, index) {
+    col, index, width: getWidth(state.colState, index);
+  };
+}
+
 export function createTable(rowsCount = 15, state = {}) {
   const colsCount = CODES.Z - CODES.A + 1;
   const rows =[];
@@ -61,10 +68,8 @@ export function createTable(rowsCount = 15, state = {}) {
   const cols = new Array(colsCount)
       .fill('')
       .map( toChar )
-      .map((col, index) => {
-        const width = getWidth(state.colState, index);
-        return toColumn(col, index, width);
-      })
+      .map(widthWidthFrom(state))
+      .map(toColumn)
       .join('');
 
   rows.push(createRow(null, cols));
