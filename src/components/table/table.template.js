@@ -20,6 +20,7 @@ function toCell(state, row) {
          data-col="${col}"
          data-type ="cell"
          data-id="${row}:${col}"
+         style="width: ${getWidth(state.colState, col)}"
       ></div>`;
   };
 }
