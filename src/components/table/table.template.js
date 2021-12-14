@@ -62,7 +62,7 @@ export function createTable(rowsCount = 15, state = {}) {
       .fill('')
       .map( toChar )
       .map((col, index) => {
-        const width = getWidth(state, index);
+        const width = getWidth(state.colState, index);
         return toColumn(col, index, width);
       })
       .join('');
