@@ -7,10 +7,6 @@ const CODES = {
 
 const DEFAULT_WIDTH = 120;
 
-// function toCell(row, col) {
-//   return `<div class="cell" contenteditable data-col="${col}"</div>`;
-// }
-
 function toCell(state, row) {
   return function(_, col) {
     const width = getWidth(state.colState, col);
