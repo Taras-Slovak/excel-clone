@@ -1,4 +1,4 @@
-import {DEFAULT_EXTENSIONS} from "@babel/core";
+// import {DEFAULT_EXTENSIONS} from '@babel/core';
 
 const CODES = {
   A: 65,
@@ -26,7 +26,11 @@ function toCell(row) {
 
 function toColumn(col, index, width) {
   return `
-    <div class="column" data-type="resizable" data-col="${index}">
+    <div
+    class="column"
+    data-type="resizable"
+    data-col="${index}"
+    style="width: ${width}">
       ${col}
       <div class="col-resize"data-resize="col"></div>
     </div>`;
@@ -58,7 +62,7 @@ export function createTable(rowsCount = 15, state = {}) {
       .fill('')
       .map( toChar )
       .map((col, index) => {
-        const width = getWidth(state, index;
+        const width = getWidth(state, index);
         return toColumn(col, index, width);
       })
       .join('');
