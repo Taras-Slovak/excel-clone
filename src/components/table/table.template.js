@@ -1,7 +1,11 @@
+import {DEFAULT_EXTENSIONS} from "@babel/core";
+
 const CODES = {
   A: 65,
   Z: 90
 };
+
+const DEFAULT_WIDTH = 120;
 
 // function toCell(row, col) {
 //   return `<div class="cell" contenteditable data-col="${col}"</div>`;
@@ -43,7 +47,9 @@ function createRow(index, content) {
 function toChar(_, index) {
   return String.fromCharCode(CODES.A + index);
 }
-
+function getWidth(state, index) {
+  return (state[index] || DEFAULT_WIDTH) + 'px';
+}
 export function createTable(rowsCount = 15, state = {}) {
   const colsCount = CODES.Z - CODES.A + 1;
   const rows =[];
@@ -51,7 +57,10 @@ export function createTable(rowsCount = 15, state = {}) {
   const cols = new Array(colsCount)
       .fill('')
       .map( toChar )
-      .map(toColumn)
+      .map((col, index) => {
+        const width = getWidth(state, index;
+        return toColumn(col, index);
+      })
       .join('');
 
   rows.push(createRow(null, cols));
