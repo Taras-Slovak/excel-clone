@@ -1,3 +1,4 @@
+// pure function
 export function rootReducer(state, action) {
   let prevState;
   switch (action.type) {
