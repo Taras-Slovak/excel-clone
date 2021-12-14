@@ -24,7 +24,7 @@ function toCell(row) {
   };
 }
 
-function toColumn(col, index) {
+function toColumn(col, index, width) {
   return `
     <div class="column" data-type="resizable" data-col="${index}">
       ${col}
