@@ -57,7 +57,9 @@ function getWidth(state, index) {
 
 function widthWidthFrom(state) {
   return function(col, index) {
-    col, index, width: getWidth(state.colState, index);
+    return {
+      col, index, width: getWidth(state.colState, index)
+    };
   };
 }
 
