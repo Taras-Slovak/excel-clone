@@ -13,7 +13,7 @@ function getWidth(state, index) {
 
 function toCell(state, row) {
   return function(_, col) {
-    const width = getWidth(state.colState, col);
+    const width = getWidth(state, col);
     return `
       <div
          class="cell"
@@ -38,7 +38,7 @@ function toColumn({col, index, width}) {
     </div>`;
 }
 
-function createRow(index, content) {
+function createRow(index, content, state) {
   const resizer = index ? `<div class="rol-resize" data-resize="row"></div>`:'';
   return `
     <div class="row" data-type="resizable" data-row="{index}">
@@ -78,9 +78,9 @@ export function createTable(rowsCount = 15, state = {}) {
   for (let row=0; row < rowsCount; row++ ) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell(state, row))
+        .map(toCell(state.colState, row))
         .join('');
-    rows.push(createRow(row + 1, cells));
+    rows.push(createRow(row + 1, cells, state.rowState));
   }
 
   return rows.join('');
