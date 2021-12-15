@@ -45,8 +45,14 @@ function toColumn({col, index, width}) {
 
 function createRow(index, content, state) {
   const resizer = index ? `<div class="rol-resize" data-resize="row"></div>`:'';
+  const height = getHeight(state, index);
   return `
-    <div class="row" data-type="resizable" data-row="{index}">
+    <div
+    class="row"
+    data-type="resizable"
+    data-row="${index}"
+    style="height: ${height}"
+    >
       <div class="row-info">
         ${index ? index:''}
         ${resizer}
@@ -78,7 +84,7 @@ export function createTable(rowsCount = 15, state = {}) {
       .map(toColumn)
       .join('');
 
-  rows.push(createRow(null, cols));
+  rows.push(createRow(null, cols, {}));
 
   for (let row=0; row < rowsCount; row++ ) {
     const cells = new Array(colsCount)
