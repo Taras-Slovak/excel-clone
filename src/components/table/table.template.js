@@ -19,7 +19,7 @@ function getHeight(state, index) {
 function toCell(state, row) {
   return function(_, col) {
     const width = getWidth(state.colState, col);
-    const id = `{row}:${col}`;
+    const id = `${row}:${col}`;
     const data = state.dataState[id];
     return `
       <div
@@ -29,7 +29,7 @@ function toCell(state, row) {
          data-type ="cell"
          data-id="${id}"
          style="width: ${width}"
-      >${data||''}</div>`;
+      >${data || ''}</div>`;
   };
 }
 
