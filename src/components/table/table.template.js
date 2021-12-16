@@ -29,7 +29,7 @@ function toCell(state, row) {
          data-type ="cell"
          data-id="${id}"
          style="width: ${width}"
-      >${data}</div>`;
+      >${data||''}</div>`;
   };
 }
 
