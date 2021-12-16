@@ -89,7 +89,7 @@ export function createTable(rowsCount = 15, state = {}) {
   for (let row=0; row < rowsCount; row++ ) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell(state.colState, row))
+        .map(toCell(state, row))
         .join('');
     rows.push(createRow(row + 1, cells, state.rowState));
   }
