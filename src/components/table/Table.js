@@ -89,7 +89,7 @@ export class Table extends ExcelComponent {
     // this.$emit('table:input', $(event.target));
     this.$dispatch(actions.changeText({
       id: this.selection.current.id(),
-      text: $(event.target).text()
+      value: $(event.target).text()
     }));
   }
 }
