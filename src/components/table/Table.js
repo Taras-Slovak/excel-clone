@@ -32,6 +32,7 @@ export class Table extends ExcelComponent {
 
     this.$on('formula:input', text => {
       this.selection.current.text(text);
+      this.updateTextInStore(text);
     });
 
     this.$on('formula:done', () => {
