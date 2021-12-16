@@ -1,5 +1,5 @@
 // pure function
-import {TABLE_RESIZE} from '@/redux/type';
+import {CHANGE_TEXT, TABLE_RESIZE} from '@/redux/type';
 
 export function rootReducer(state, action) {
   let prevState;
@@ -10,6 +10,8 @@ export function rootReducer(state, action) {
       prevState = state[field] || {};
       prevState[action.data.id] = action.data.value;
       return {...state, [field]: prevState};
+    case CHANGE_TEXT:
+      return {...state, currentText: action.data};
     default: return state;
   }
 }
