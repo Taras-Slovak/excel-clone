@@ -7,9 +7,8 @@ export class StoreSubscriber {
     this.sub = this.store.subscribe(state => {
 
     });
-    
-    unsubscribeFromStore() {
-      this.sub.unsubscribe();
-    }
+  }
+  unsubscribeFromStore() {
+    this.sub.unsubscribe();
   }
 }
