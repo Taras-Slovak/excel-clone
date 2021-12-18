@@ -33,7 +33,7 @@ export class Excel {
     this.components.forEach(component => component.init());
   }
   destroy() {
-    this.subscriber.
+    this.subscriber.unsubscribeFromStore();
     this.components.forEach(component => component.destroy());
   }
 }
