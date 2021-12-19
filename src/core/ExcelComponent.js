@@ -39,9 +39,11 @@ export class ExcelComponent extends DomListener {
   $dispatch(action) {
     this.store.dispatch(action);
   }
-  
-  //There is a change in the field where the subscription
-  storeChange{}
+
+  // There is a change in the field where the subscription
+  storeChange() {
+
+  }
 
   // Deleting a component
   // Clean up the listener
