@@ -5,10 +5,12 @@ export class StoreSubscriber {
     this.prevState = {};
   }
   subscribeComponents(components) {
-    this.prevState = this.store.getStore();
+    this.prevState = this.store.getStore;
     this.sub = this.store.subscribe(state => {
       Object.keys(state).forEach(key => {
-        console.log(key);
+        if (!isEqual(this.prevState[key], state[key])) {
+
+        }
       });
     });
   }
