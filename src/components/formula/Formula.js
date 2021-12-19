@@ -36,6 +36,10 @@ export class Formula extends ExcelComponent {
     // });
   }
 
+  storeChange(changes) {
+    console.log('change', changes);
+  }
+
   onInput(event) {
     this.$emit('formula:input', $(event.target).text());
   }
