@@ -4,7 +4,7 @@ export class ExcelComponent extends DomListener {
   constructor($root, options= {}) {
     super($root, options.listeners);
     this.name = options.name || '';
-    this.emitter = options.emitter;
+    this.subscribe = options.subscribe || [];
     this.store = options.store;
     this.unsubscribers = [];
 
@@ -43,6 +43,10 @@ export class ExcelComponent extends DomListener {
   // There is a change in the field where the subscription
   storeChange() {
 
+  }
+
+  isWatching(key) {
+    return this.subscribe.includes(key);
   }
 
   // Deleting a component
