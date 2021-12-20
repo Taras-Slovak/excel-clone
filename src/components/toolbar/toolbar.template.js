@@ -1,5 +1,8 @@
 function toButton(button) {
-  const meta = `data-type="button"`;
+  const meta = `
+    data-type="button"
+    data-value="${ JSON.stringify(button.value) }"
+    `;
   return `
     <div
       class="button ${button.active ? 'active' : ''}" ${meta}>
