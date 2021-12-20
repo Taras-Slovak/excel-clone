@@ -1,11 +1,9 @@
 function toButton(button) {
+  const meta = `data-type="button"`;
   return `
     <div
-      class="button ${button.active ? 'active' : ''}"
-      data-type="button">
-      <i class="material-icons"
-      data-type="button">
-      ${button.icon}</i>
+      class="button ${button.active ? 'active' : ''}" ${meta}>
+      <i class="material-icons" ${meta}>${button.icon}</i>
     </div>`;
 }
 
