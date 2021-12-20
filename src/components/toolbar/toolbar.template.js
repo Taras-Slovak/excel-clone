@@ -11,27 +11,33 @@ export function createToolbar() {
   const buttons = [
     {
       icon: 'format_align_left',
-      active: false
+      active: false,
+      value: {textAlign: 'left'}
     },
     {
       icon: 'format_align_center',
-      active: true
+      active: true,
+      value: {textAlign: 'center'}
     },
     {
       icon: 'format_align_right',
-      active: false
+      active: false,
+      value: {textAlign: 'right'}
     },
     {
       icon: 'format_bold',
-      active: true
+      active: true,
+      value: {fontWeight: 'bold'}
     },
     {
       icon: 'format_italic',
-      active: false
+      active: false,
+      value: {fontStyle: 'italic'}
     },
     {
       icon: 'format_underlined',
-      active: false
+      active: false,
+      value: {textDecoration: 'underlined'}
     },
   ];
   return buttons.map(toButton).join('');
