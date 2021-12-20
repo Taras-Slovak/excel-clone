@@ -2,7 +2,7 @@ function toButton(button) {
   const jason = JSON.stringify(button.value);
   const meta = `
     data-type="button"
-    data-value="${ jason }"
+    data-value='${ jason }'
     `;
   return `
     <div
