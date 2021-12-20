@@ -2,9 +2,10 @@ function toButton(button) {
   return `
     <div
       class="button ${button.active ? 'active' : ''}"
-      data-type="button"
-    >
-      <i class="material-icons">${button.icon}</i>
+      data-type="button">
+      <i class="material-icons"
+      data-type="button">
+      ${button.icon}</i>
     </div>`;
 }
 
