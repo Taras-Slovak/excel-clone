@@ -1,6 +1,6 @@
 function toButton(button) {
   return `
-    <div class="button">
+    <div class="button ${button.active ? 'active' : ''}">
       <i class="material-icons">${button.icon}</i>
     </div>`;
 }
@@ -13,7 +13,7 @@ export function createToolbar() {
     },
     {
       icon: 'format_align_center',
-      active: false
+      active: true
     },
     {
       icon: 'format_align_right',
