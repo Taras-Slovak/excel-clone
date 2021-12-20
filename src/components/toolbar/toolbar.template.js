@@ -8,22 +8,28 @@ function toButton(button) {
 export function createToolbar() {
   const buttons = [
     {
-      icon: 'format_align_left'
+      icon: 'format_align_left',
+      active: false
     },
     {
-      icon: 'format_align_center'
+      icon: 'format_align_center',
+      active: false
     },
     {
-      icon: 'format_align_right'
+      icon: 'format_align_right',
+      active: false
     },
     {
-      icon: 'format_bold'
+      icon: 'format_bold',
+      active: true
     },
     {
-      icon: 'format_italic'
+      icon: 'format_italic',
+      active: false
     },
     {
-      icon: 'format_underlined'
+      icon: 'format_underlined',
+      active: false
     },
   ];
   return buttons.map(toButton).join('');
