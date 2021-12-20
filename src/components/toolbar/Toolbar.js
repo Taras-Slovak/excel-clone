@@ -1,5 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {createToolbar} from '@/components/toolbar/toolbar.template';
+import {$} from '@core/Dom';
 
 export class Toolbar extends ExcelComponent {
   static className = 'excel__toolbar';
@@ -16,6 +17,9 @@ export class Toolbar extends ExcelComponent {
     return createToolbar();
   }
   onClick(event) {
-    console.log(event.target);
+    const $target = $(event.target);
+    if ($target.data.type === 'button' ) {
+      console.log($target.text());
+    }
   }
 }
