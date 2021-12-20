@@ -20,7 +20,7 @@ export function createToolbar() {
     },
     {
       icon: 'format_align_center',
-      active: true,
+      active: false,
       value: {textAlign: 'center'}
     },
     {
@@ -30,7 +30,7 @@ export function createToolbar() {
     },
     {
       icon: 'format_bold',
-      active: true,
+      active: false,
       value: {fontWeight: 'bold'}
     },
     {
