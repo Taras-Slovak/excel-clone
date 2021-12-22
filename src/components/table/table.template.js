@@ -1,5 +1,8 @@
 // import {DEFAULT_EXTENSIONS} from '@babel/core';
 
+import {defaultStyles} from '@/scss/constants';
+import {camelToDashCase} from '@core/utils';
+
 const CODES = {
   A: 65,
   Z: 90
@@ -18,18 +21,22 @@ function getHeight(state, index) {
 
 function toCell(state, row) {
   return function(_, col) {
-    const width = getWidth(state.colState, col);
     const id = `${row}:${col}`;
+    const width = getWidth(state.colState, col);
     const data = state.dataState[id];
+    const styles = Object.keys(defaultStyles)
+        .map(key => `${camelToDashCase(key)}: ${defaultStyles[key]}`)
+        .join(';');
     return `
-      <div
-         class="cell"
-         contenteditable
-         data-col="${col}"
-         data-type ="cell"
-         data-id="${id}"
-         style="width: ${width}"
-      >${data || ''}</div>`;
+      <div 
+        class="cell" 
+        contenteditable 
+        data-col="${col}"
+        data-type="cell"
+        data-id="${id}"
+        style="${styles}; width: ${width}"
+      >${data || ''}</div>
+    `;
   };
 }
 
