@@ -1,15 +1,14 @@
 import {ExcelComponent} from '@core/ExcelComponent';
+import {$} from '@core/dom';
 import {createTable} from '@/components/table/table.template';
 import {resizeHandler} from '@/components/table/table.resize';
-import {isCell, matrix,
-  nextSelector, shouldResize} from '@/components/table/table.function';
+import {isCell, matrix, nextSelector, shouldResize} from './table.functions';
 import {TableSelection} from '@/components/table/TableSelection';
-import {$} from '@core/Dom';
-import * as actions from '@/redux/action';
-import {defaultStyles} from '@/scss/constants';
+import * as actions from '@/redux/actions';
+import {defaultStyles} from '@/constants';
 
 export class Table extends ExcelComponent {
-  static className = 'excel__table';
+  static className = 'excel__table'
 
   constructor($root, options) {
     super($root, {
@@ -22,6 +21,7 @@ export class Table extends ExcelComponent {
   toHTML() {
     return createTable(20, this.store.getState());
   }
+
   prepare() {
     this.selection = new TableSelection();
   }
@@ -40,8 +40,12 @@ export class Table extends ExcelComponent {
       this.selection.current.focus();
     });
 
-    this.$on('toolbar:applyStyle', style => {
-      this.selection.applyStyle(style);
+    this.$on('toolbar:applyStyle', value => {
+      this.selection.applyStyle(value);
+      this.$dispatch(actions.applyStyle({
+        value,
+        ids: this.selection.selectedIds
+      }));
     });
   }
 
@@ -79,10 +83,16 @@ export class Table extends ExcelComponent {
 
   onKeydown(event) {
     const keys = [
-      'Enter', 'Tab', 'ArrowLeft',
-      'ArrowRight', 'ArrowDown',
-      'ArrowUp'];
+      'Enter',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowDown',
+      'ArrowUp'
+    ];
+
     const {key} = event;
+
     if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault();
       const id = this.selection.current.id(true);

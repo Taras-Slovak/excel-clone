@@ -2,6 +2,7 @@ export class Emitter {
   constructor() {
     this.listeners = {};
   }
+
   // dispatch, fire, trigger
   // We inform the listeners if they are
   emit(event, ...args) {
@@ -13,6 +14,7 @@ export class Emitter {
     });
     return true;
   }
+
   // on, listen
   // Subscribe to notifications
   // Add a new listener

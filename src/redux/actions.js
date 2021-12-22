@@ -1,8 +1,8 @@
 import {
-  APPLY_STYLE, CHANGE_STYLES, CHANGE_TEXT, TABLE_RESIZE
-} from '@/redux/type';
+  CHANGE_TEXT, CHANGE_STYLES, TABLE_RESIZE, APPLY_STYLE
+} from './types';
 
-// Action creator
+// Action Creator
 export function tableResize(data) {
   return {
     type: TABLE_RESIZE,

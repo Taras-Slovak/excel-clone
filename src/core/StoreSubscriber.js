@@ -6,6 +6,7 @@ export class StoreSubscriber {
     this.sub = null;
     this.prevState = {};
   }
+
   subscribeComponents(components) {
     this.prevState = this.store.getState();
 
@@ -15,14 +16,16 @@ export class StoreSubscriber {
           components.forEach(component => {
             if (component.isWatching(key)) {
               const changes = {[key]: state[key]};
-              component.storeChange(changes);
+              component.storeChanged(changes);
             }
           });
         }
       });
+
       this.prevState = this.store.getState();
     });
   }
+
   unsubscribeFromStore() {
     this.sub.unsubscribe();
   }

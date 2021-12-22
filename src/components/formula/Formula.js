@@ -1,8 +1,8 @@
 import {ExcelComponent} from '@core/ExcelComponent';
-import {$} from '@core/Dom';
+import {$} from '@core/dom';
 
 export class Formula extends ExcelComponent {
-  static className = 'excel__formula';
+  static className = 'excel__formula'
 
   constructor($root, options) {
     super($root, {
@@ -22,13 +22,15 @@ export class Formula extends ExcelComponent {
 
   init() {
     super.init();
+
     this.$formula = this.$root.find('#formula');
-    this.$on('table:select', $cell =>{
+
+    this.$on('table:select', $cell => {
       this.$formula.text($cell.text());
     });
   }
 
-  storeChange({currentText}) {
+  storeChanged({currentText}) {
     this.$formula.text(currentText);
   }
 

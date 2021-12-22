@@ -1,14 +1,19 @@
 function toButton(button) {
-  const jason = JSON.stringify(button.value);
   const meta = `
     data-type="button"
-    data-value='${ jason }'
-    `;
+    data-value='${JSON.stringify(button.value)}'
+  `;
   return `
-    <div
-      class="button ${button.active ? 'active' : ''}" ${meta}>
-      <i class="material-icons" ${meta}>${button.icon}</i>
-    </div>`;
+    <div 
+      class="button ${button.active ? 'active' : ''}"
+      ${meta}
+    >
+      <i 
+        class="material-icons"
+        ${meta}
+      >${button.icon}</i>
+    </div>
+  `;
 }
 
 export function createToolbar(s) {
@@ -34,11 +39,6 @@ export function createToolbar(s) {
       active: s['fontWeight'] === 'bold'
     },
     {
-      value: {fontStyle: s['fontStyle'] === 'italic' ? 'normal' : 'italic'},
-      icon: 'format_italic',
-      active: s['fontStyle'] === 'italic'
-    },
-    {
       value: {
         textDecoration: s['textDecoration'] === 'underline'
           ? 'none'
@@ -47,6 +47,11 @@ export function createToolbar(s) {
       icon: 'format_underlined',
       active: s['textDecoration'] === 'underline'
     },
+    {
+      value: {fontStyle: s['fontStyle'] === 'italic' ? 'normal' : 'italic'},
+      icon: 'format_italic',
+      active: s['fontStyle'] === 'italic'
+    }
   ];
   return buttons.map(toButton).join('');
 }

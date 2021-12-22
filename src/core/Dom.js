@@ -1,17 +1,18 @@
 class Dom {
   constructor(selector) {
-    // #app
-    this.$el = typeof selector ==='string'
+    this.$el = typeof selector === 'string'
       ? document.querySelector(selector)
       : selector;
   }
+
   html(html) {
-    if (typeof html==='string') {
+    if (typeof html === 'string') {
       this.$el.innerHTML = html;
       return this;
     }
     return this.$el.outerHTML.trim();
   }
+
   text(text) {
     if (typeof text === 'string') {
       this.$el.textContent = text;
@@ -22,17 +23,18 @@ class Dom {
     }
     return this.$el.textContent.trim();
   }
+
   clear() {
     this.html('');
     return this;
   }
 
-  on(evenType, callback) {
-    this.$el.addEventListener(evenType, callback);
+  on(eventType, callback) {
+    this.$el.addEventListener(eventType, callback);
   }
 
-  off(evenType, callback) {
-    this.$el.removeEventListener(evenType, callback);
+  off(eventType, callback) {
+    this.$el.removeEventListener(eventType, callback);
   }
 
   find(selector) {
@@ -43,11 +45,13 @@ class Dom {
     if (node instanceof Dom) {
       node = node.$el;
     }
+
     if (Element.prototype.append) {
       this.$el.append(node);
     } else {
       this.$el.appendChild(node);
     }
+
     return this;
   }
 
@@ -68,9 +72,11 @@ class Dom {
   }
 
   css(styles = {}) {
-    Object.keys(styles).forEach(key => {
-      this.$el.style[key] = styles[key];
-    });
+    Object
+        .keys(styles)
+        .forEach(key => {
+          this.$el.style[key] = styles[key];
+        });
   }
 
   getStyles(styles = []) {
@@ -98,18 +104,20 @@ class Dom {
 
   addClass(className) {
     this.$el.classList.add(className);
+    return this;
   }
 
   removeClass(className) {
     this.$el.classList.remove(className);
+    return this;
   }
 }
 
-// event.target
 export function $(selector) {
   return new Dom(selector);
 }
-$.create =(tagName, classes = '') => {
+
+$.create = (tagName, classes = '') => {
   const el = document.createElement(tagName);
   if (classes) {
     el.classList.add(classes);

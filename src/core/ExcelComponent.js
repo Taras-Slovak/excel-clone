@@ -1,7 +1,7 @@
 import {DomListener} from '@core/DomListener';
 
 export class ExcelComponent extends DomListener {
-  constructor($root, options= {}) {
+  constructor($root, options = {}) {
     super($root, options.listeners);
     this.name = options.name || '';
     this.emitter = options.emitter;
@@ -20,13 +20,7 @@ export class ExcelComponent extends DomListener {
     return '';
   }
 
-  // Component initialization
-  // Add DOM listeners
-  init() {
-    this.initDOMListeners();
-  }
-
-  // Notifying the listener of an event
+  // We inform the audience about the event
   $emit(event, ...args) {
     this.emitter.emit(event, ...args);
   }
@@ -43,7 +37,6 @@ export class ExcelComponent extends DomListener {
 
   // There is a change in the field where the subscription
   storeChange() {
-
   }
 
   isWatching(key) {
@@ -52,6 +45,11 @@ export class ExcelComponent extends DomListener {
 
   // Deleting a component
   // Clean up the listener
+
+  init() {
+    this.initDOMListeners();
+  }
+
   destroy() {
     this.removeDOMListeners();
     this.unsubscribers.forEach(unsub => unsub());
