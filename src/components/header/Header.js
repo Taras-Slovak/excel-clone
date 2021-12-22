@@ -1,6 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
-import {changeTitle} from '@/redux/actions';
 import {$} from '@core/dom';
+import {changeTitle} from '@/redux/actions';
 import {defaultTitle} from '@/constants';
 import {debounce} from '@core/utils';
 
