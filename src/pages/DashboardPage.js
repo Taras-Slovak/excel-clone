@@ -1,43 +1,26 @@
 import {Page} from '@core/Page';
 import {$} from '@core/dom';
+import {createRecordsTable} from './dashboard.functions';
 
 export class DashboardPage extends Page {
   getRoot() {
+    const now = Date.now().toString();
     return $.create('div', 'db').html(`
       <div class="db__header">
-      <h1>Excel Dashboard</h1>
-    </div>
-
-    <div class="db__new">
-      <div class="db__view">
-        <a href="#" class="db__create">
-          New <br /> Table
-        </a>
-      </div>
-    </div>
-
-    <div class="db__table db__view">
-
-      <div class="db__list-header">
-        <span>Name</span>
-        <span> Opening date </span>
+        <h1>Excel. Control Panel</h1>
       </div>
 
-      <ul class="db__list">
+      <div class="db__new">
+        <div class="db__view">
+          <a href="#excel/${now}" class="db__create">
+            New <br /> Table
+          </a>
+        </div>
+      </div>
 
-        <li class="db__record">
-          <a href="#">Table number 1</a>
-          <strong>21.12.2021</strong>
-        </li>
-
-        <li class="db__record">
-          <a href="#">Table number 2</a>
-          <strong>21.12.2021</strong>
-        </li>
-
-      </ul>
-
-    </div>
+      <div class="db__table db__view">
+        ${createRecordsTable()}
+      </div>
     `);
   }
 }
