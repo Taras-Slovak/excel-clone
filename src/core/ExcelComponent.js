@@ -12,20 +12,20 @@ export class ExcelComponent extends DomListener {
     this.prepare();
   }
 
-  // Настраивааем наш компонент до init
+  // Setting up our component to init
   prepare() {}
 
-  // Возвращает шаблон компонента
+  // Returns the component template
   toHTML() {
     return '';
   }
 
-  // Уведомляем слушателей про событие event
+  // Notifying listeners about the event
   $emit(event, ...args) {
     this.emitter.emit(event, ...args);
   }
 
-  // Подписываемся на событие event
+  // Subscribe to the event
   $on(event, fn) {
     const unsub = this.emitter.subscribe(event, fn);
     this.unsubscribers.push(unsub);
